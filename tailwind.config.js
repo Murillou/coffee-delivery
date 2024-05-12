@@ -7,6 +7,10 @@ export default {
         sm1: '280px',
       },
 
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
+
       colors: {
         yellow: {
           dark: '#C47F17',
@@ -20,7 +24,7 @@ export default {
         },
         base: {
           title: '#272221',
-          subtitle: '#403938',
+          subtitle: '#403937',
           text: '#574F4f',
           label: '#8D8686',
           hover: '#D7D5D5  ',
