@@ -3,11 +3,8 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      screens: {
-        sm1: '280px',
-      },
-
       fontFamily: {
+        baloo2: ["'Baloo 2'", 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
 

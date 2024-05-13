@@ -45,19 +45,19 @@ export function Header() {
 
   return (
     <header>
-      <div className="flex justify-between items-center h-[6.5rem] md:mx-40 md:flex-row  sm1:flex-col sm1:gap-2 sm1:mx-auto">
+      <div className="flex flex-col justify-center items-center mt-8 gap-3 sm:flex-row sm:justify-between sm:mx-20 md:mx-30 xl-mx-40  ">
         <div>
           <img src={coffeelogo} alt="Logo Coffee Delivery" />
         </div>
 
-        <div className="flex gap-3 md:flex-row sm1:flex-col">
-          <div className="flex gap-1 items-center p-2 bg-purple-light text-purple-dark rounded-md cursor-pointer hover:bg-purple-normal hover:text-purple-light">
+        <div className="flex flex-col gap-3 sm:flex-row ">
+          <div className="flex items-center p-2 gap-1 bg-purple-light text-purple-dark rounded-md cursor-pointer hover:bg-purple-normal hover:text-purple-light">
             <MapPin size={22} weight="fill" />
-            <span className="font-roboto">{city}</span>
+            {city && <span>{city}</span>}
           </div>
 
           <ShoppingCart
-            className="bg-yellow-light h-[2.375rem] w-[2.375rem] p-2 text-yellow-dark hover:text-yellow-light hover:bg-yellow-dark  rounded-md cursor-pointer sm1:w-auto"
+            className="bg-yellow-light h-[2.375rem] w-[2.375rem] p-2 text-yellow-dark hover:text-yellow-light hover:bg-yellow-dark  rounded-md cursor-pointer w-auto"
             size={25}
             weight="fill"
           />
