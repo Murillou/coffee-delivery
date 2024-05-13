@@ -16,10 +16,12 @@ export function Header() {
           );
 
           const data = await response.json();
+
           const cityAndState = data.results
             .map((result: any) => {
-              const cityComponent = data.results[7]?.address_components.find(
-                (component: any) => component.types.includes('locality')
+              const cityComponent = result.address_components.find(
+                (component: any) =>
+                  component.types.includes('administrative_area_level_2')
               )?.long_name;
 
               const stateComponent = result.address_components.find(
