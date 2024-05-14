@@ -17,24 +17,25 @@ export function Header() {
 
           const data = await response.json();
 
-          const cityAndState = data.results
-            .map((result: any) => {
-              const cityComponent = result.address_components.find(
-                (component: any) =>
-                  component.types.includes('administrative_area_level_2')
-              )?.long_name;
+          const cityAndState = data.results[0].formatted_address.split(',')[2];
+          // const cityAndState = data.results
 
-              const stateComponent = result.address_components.find(
-                (component: any) =>
-                  component.types.includes('administrative_area_level_1')
-              )?.short_name;
+          //   .map((result: any) => {
+          //     const cityComponent = result.address_components.find(
+          //       (component: any) =>
+          //         component.types.includes('administrative_area_level_2')
+          //     )?.long_name;
 
-              return `${cityComponent}, ${stateComponent}`;
-            })
-            .find((city: string) => city);
+          //     const stateComponent = result.address_components.find(
+          //       (component: any) =>
+          //         component.types.includes('administrative_area_level_1')
+          //     )?.short_name;
+
+          //     return `${cityComponent}, ${stateComponent}`;
+          //   })
+          //   .find((city: string) => city);
           setCity(cityAndState || 'Cidade desconhecida');
         } catch (error) {
-          console.log('Erro ao obter o nome da cidade', error);
           setCity('Cidade Desconhecida');
         }
       });
