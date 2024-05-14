@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { MapPin, ShoppingCart } from 'phosphor-react';
-import coffeelogo from '../assets/logo-coffee.png';
+import coffeelogo from '../../assets/logo-coffee.png';
 import { useState, useEffect } from 'react';
 
 export function Header() {

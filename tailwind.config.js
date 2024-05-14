@@ -20,6 +20,7 @@ export default {
           light: '#EBE5F9',
         },
         base: {
+          card: '#f3f2f2',
           title: '#272221',
           subtitle: '#403937',
           text: '#574F4f',

@@ -1,5 +1,5 @@
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react';
-import coffeeBackground from '../assets/coffee-bg.png';
+import coffeeBackground from '../../assets/coffee-bg.png';
 
 export function Main() {
   return (
@@ -8,7 +8,7 @@ export function Main() {
         <h1 className="text-base-title text-5xl font-extrabold max-w-xl font-baloo2">
           Encontre o café perfeito para qualquer hora do dia
         </h1>
-        <h3 className="text-base-subtitle text-xl font-roboto font-normal mt-4 max-w-xl ">
+        <h3 className="text-base-subtitle text-xl font-roboto font-normal mt-4 max-w-xl  ">
           Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
           hora
         </h3>
