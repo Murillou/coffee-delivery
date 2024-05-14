@@ -3,11 +3,13 @@ import { Card } from './Card';
 
 export function Menu() {
   return (
-    <main className="flex flex-col flex-wrap text-center mt-10 md:mx-30 xl-mx-40">
-      <h1 className="text-base-title font-extrabold text-3xl font-baloo2  ">
-        Nossos cafés
-      </h1>
-      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <main className="flex flex-col  max-w-7xl mx-auto p-4 ">
+      <div>
+        <h1 className="text-base-title font-extrabold text-3xl font-baloo2 text-center xl:text-left ">
+          Nossos cafés
+        </h1>
+      </div>
+      <div className="grid grid-cols-1 gap-5 justify-items-center xl:justify-items-start sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {coffees.map((coffee, index) => (
           <Card
             key={index}

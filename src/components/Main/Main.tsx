@@ -3,7 +3,7 @@ import coffeeBackground from '../../assets/coffee-bg.png';
 
 export function Main() {
   return (
-    <main className="flex flex-col justify-between items-center mx-4 mt-10 sm:flex-row sm:mx-20 md:mx-30 ">
+    <main className="flex flex-col justify-between items-center p-4 sm:flex-row max-w-7xl mx-auto">
       <div className="flex flex-col mx-0">
         <h1 className="text-base-title text-5xl font-extrabold max-w-xl font-baloo2">
           Encontre o café perfeito para qualquer hora do dia

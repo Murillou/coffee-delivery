@@ -45,7 +45,7 @@ export function Header() {
 
   return (
     <header>
-      <div className="flex flex-col justify-center items-center mt-8 gap-3 sm:flex-row sm:justify-between sm:mx-20 md:mx-30 xl-mx-40  ">
+      <div className="flex flex-col justify-center items-center max-w-7xl mx-auto p-4 gap-3 sm:flex-row sm:justify-between ">
         <div>
           <img src={coffeelogo} alt="Logo Coffee Delivery" />
         </div>
