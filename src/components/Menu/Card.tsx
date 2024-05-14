@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 export function Card({ src, types, coffeeName, description }: CardProps) {
-  function handleSubmitForm(e) {
+  function handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
 
