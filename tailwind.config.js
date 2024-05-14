@@ -21,6 +21,7 @@ export default {
         },
         base: {
           card: '#f3f2f2',
+          button: '#E6E5E5',
           title: '#272221',
           subtitle: '#403937',
           text: '#574F4f',
