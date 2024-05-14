@@ -12,6 +12,7 @@ export function QuantityInput() {
       setQuantity(quantity - 1);
     }
   };
+  console.log(quantity);
 
   return (
     <div className="flex justify-center items-center gap-2 font-roboto bg-base-button py-1 rounded-md w-[65px]">

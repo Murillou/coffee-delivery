@@ -13,6 +13,8 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
     e.preventDefault();
   }
 
+  function handleTotalPriceCoffee() {}
+
   return (
     <div className="bg-base-card flex flex-col items-center justify-center p-4 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] my-10 w-[256px] h-[310px] font-roboto">
       <img className="-mt-12" src={src} alt="" />
@@ -39,6 +41,7 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
         <div className="flex items-center gap-2">
           <QuantityInput />
           <ShoppingCart
+            onClick={handleTotalPriceCoffee}
             className="bg-purple-dark text-white h-[2rem] w-[2rem] p-2 hover:bg-purple-normal rounded-md cursor-pointer"
             size={25}
             weight="fill"
