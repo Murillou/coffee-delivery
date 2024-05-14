@@ -14,12 +14,12 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
   }
 
   return (
-    <div className="bg-base-card flex flex-col items-center justify-center p-4 rounded-tr-3xl rounded-bl-3xl my-10 w-[256px] h-[310px] font-roboto">
+    <div className="bg-base-card flex flex-col items-center justify-center p-4 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] my-10 w-[256px] h-[310px] font-roboto">
       <img className="-mt-12" src={src} alt="" />
       <div className="flex gap-1">
         {types.map((type, index) => (
           <span
-            className=" bg-yellow-light text-yellow-dark font-bold rounded-full py-1 px-2 mt-[15px]"
+            className=" bg-yellow-light text-yellow-dark font-bold text-sm rounded-full  px-2 mt-[15px]"
             key={index}
           >
             {type}

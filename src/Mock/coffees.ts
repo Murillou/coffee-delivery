@@ -1,103 +1,88 @@
-import coffeeTradicional from '../assets/coffees/tradicional.png';
-import coffeeAmericano from '../assets/coffees/americano.png';
-import coffeeCremoso from '../assets/coffees/cremoso.png';
-import coffeeGelado from '../assets/coffees/gelado.png';
-import coffeeComLeite from '../assets/coffees/cafécomleite.png';
-import coffeeLatte from '../assets/coffees/latte.png';
-import coffeeCapuccino from '../assets/coffees/capuccino.png';
-import coffeeMacchiato from '../assets/coffees/macchiato.png';
-import coffeeMocaccino from '../assets/coffees/mocaccino.png';
-import coffeeChocolateQuente from '../assets/coffees/chocolatequente.png';
-import coffeeCubano from '../assets/coffees/cubano.png';
-import coffeeHavaiano from '../assets/coffees/havaiano.png';
-import coffeeArabe from '../assets/coffees/arabe.png';
-import coffeeIrlandes from '../assets/coffees/irlandes.png';
-
 export const coffees = [
   {
-    src: coffeeTradicional,
+    src: '/coffees/tradicional.png',
     types: ['TRADICIONAL'],
     coffeeName: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
   },
   {
-    src: coffeeAmericano,
+    src: '/coffees/americano.png',
     types: ['TRADICIONAL'],
     coffeeName: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
   },
   {
-    src: coffeeCremoso,
+    src: '/coffees/cremoso.png',
     types: ['TRADICIONAL'],
     coffeeName: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
   },
   {
-    src: coffeeGelado,
+    src: 'coffees/gelado.png',
     types: ['TRADICIONAL', 'GELADO'],
     coffeeName: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
   },
   {
-    src: coffeeComLeite,
+    src: 'coffees/cafécomleite.png',
     types: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
   },
   {
-    src: coffeeLatte,
+    src: 'coffees/latte.png',
     types: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Latte',
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
   },
   {
-    src: coffeeCapuccino,
+    src: 'coffees/capuccino.png',
     types: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Capuccino',
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
   },
   {
-    src: coffeeMacchiato,
+    src: 'coffees/macchiato.png',
     types: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Macchiato',
     description: 'Café expresso misturado com pouco de leite quente e espuma',
   },
   {
-    src: coffeeMocaccino,
+    src: 'coffees/mocaccino.png',
     types: ['TRADICIONAL', 'COM LEITE'],
     coffeeName: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
   },
   {
-    src: coffeeChocolateQuente,
+    src: 'coffees/chocolatequente.png',
     types: ['ESPECIAL', 'COM LEITE'],
     coffeeName: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
   },
   {
-    src: coffeeCubano,
-    types: ['ESPECIAL', 'ALCOÒLICO', 'GELADO'],
+    src: 'coffees/cubano.png',
+    types: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
     coffeeName: 'Cubano',
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
   },
   {
-    src: coffeeHavaiano,
+    src: 'coffees/havaiano.png',
     types: ['ESPECIAL'],
     coffeeName: 'Havaiano',
     description: 'Bebidaa adocicada preparadaa com café e leite de coco',
   },
   {
-    src: coffeeArabe,
+    src: 'coffees/arabe.png',
     types: ['ESPECIAL'],
     coffeeName: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
   },
   {
-    src: coffeeIrlandes,
-    types: ['ESPECIAl', 'ALCOÒLICO'],
+    src: 'coffees/irlandes.png',
+    types: ['ESPECIAl', 'ALCOÓLICO'],
     coffeeName: 'Irlandês',
     description: 'Bebida a base de café, uisque irlândes, açícar e chantilly',
   },
