@@ -1,19 +1,37 @@
 import { ShoppingCart } from 'phosphor-react';
 import { QuantityInput } from './QuantityInput';
+import { useState } from 'react';
 
 interface CardProps {
   src: string;
   types: string[];
   coffeeName: string;
   description: string;
+  onPriceChange: (price: number) => void;
+  onQuantityChange: (price: number) => void;
 }
 
-export function Card({ src, types, coffeeName, description }: CardProps) {
+export function Card({
+  src,
+  types,
+  coffeeName,
+  description,
+  onPriceChange,
+  onQuantityChange,
+}: CardProps) {
+  const [quantity, setQuantity] = useState(0);
+
   function handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
 
-  function handleTotalPriceCoffee() {}
+  function handleTotalPriceCoffee() {
+    const coffePrice = 9.9;
+    const totalQuantityPrice = quantity * coffePrice;
+    onPriceChange(totalQuantityPrice);
+    onQuantityChange(quantity);
+    setQuantity(0);
+  }
 
   return (
     <div className="bg-base-card flex flex-col items-center justify-center p-4 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] my-10 w-[256px] h-[310px] font-roboto">
@@ -39,7 +57,7 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
           R$ <span className="font-extrabold text-2xl">9,90</span>
         </h1>
         <div className="flex items-center gap-2">
-          <QuantityInput />
+          <QuantityInput value={quantity} onChange={setQuantity} />
           <ShoppingCart
             onClick={handleTotalPriceCoffee}
             className="bg-purple-dark text-white h-[2rem] w-[2rem] p-2 hover:bg-purple-normal rounded-md cursor-pointer"
