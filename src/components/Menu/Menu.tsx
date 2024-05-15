@@ -6,14 +6,14 @@ export function Menu() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
-  function handlePriceChange(price) {
+  function handlePriceChange(price: number) {
     const newTotalPrice = totalPrice + price;
     setTotalPrice(newTotalPrice);
     console.log(newTotalPrice);
     console.log(typeof setTotalPrice);
   }
 
-  function handleQuantityItems(quantity) {
+  function handleQuantityItems(quantity: number) {
     const totalItemsUpdate = totalItems + quantity;
     setTotalItems(totalItemsUpdate);
     console.log(totalItemsUpdate);
