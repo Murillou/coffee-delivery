@@ -1,13 +1,12 @@
-import { Header } from './components/Header/Header';
-import { Main } from './components/Main/Main';
-import { Menu } from './components/Menu/Menu';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './components/Router/Router';
 
 export function App() {
   return (
     <>
-      <Header />
-      <Main />
-      <Menu />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </>
   );
 }
