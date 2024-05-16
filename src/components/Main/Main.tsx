@@ -3,7 +3,7 @@ import coffeeBackground from '../../assets/coffee-bg.png';
 
 export function Main() {
   return (
-    <section className="bg-[url('background.png')] bg-cover">
+    <section className="bg-[url('./assets/background.png')] bg-cover">
       <main className="flex flex-col justify-between items-center p-4 sm:flex-row max-w-7xl mx-auto">
         <div className="flex flex-col mx-0">
           <h1 className="text-base-title text-5xl font-extrabold max-w-xl font-baloo2">

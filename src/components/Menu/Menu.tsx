@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { coffees } from '../../Mock/coffees';
+import { coffees } from '../../mock/coffees';
 import { Card } from './Card';
 
 export function Menu() {
