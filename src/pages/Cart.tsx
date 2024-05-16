@@ -1,9 +1,7 @@
 export function Cart() {
   return (
     <div>
-      <ul>
-        <li>TEstando</li>
-      </ul>
+      <h1>Hello World!!</h1>
     </div>
   );
 }
