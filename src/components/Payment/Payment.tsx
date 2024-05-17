@@ -134,7 +134,7 @@ export function Payment() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center xl:items-stretch -mt-60">
+      <section className="flex flex-col items-center xl:items-stretch xl:-mt-60">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Cafés selecionados
         </h1>
