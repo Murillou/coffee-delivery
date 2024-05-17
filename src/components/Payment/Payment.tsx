@@ -10,7 +10,7 @@ import { ButtonPayment } from './ButtonPayment';
 
 export function Payment() {
   return (
-    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-4">
+    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-4 lg:flex-row">
       <section className="flex flex-col items-center justify-center gap-3">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Complete seu pedido
@@ -48,14 +48,14 @@ export function Payment() {
           </div>
         </form>
 
-        <div className="flex flex-col p-4 bg-base-card rounded-lg ">
+        <div className="flex flex-col p-4 bg-base-card rounded-lg">
           <div>
-            <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium">
+            <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium mb-2">
               <CurrencyDollar className="text-purple-normal" size={22} />
               Pagamento
             </h1>
 
-            <p className="font-roboto text-base-text text-sm mt-2">
+            <p className="font-roboto text-base-text text-sm mb-4">
               O pagamento é feito na entrega. Escolha a forma que deseja pagar
             </p>
           </div>
@@ -77,7 +77,7 @@ export function Payment() {
         </h1>
 
         <div className="flex flex-col gap-4 bg-base-card p-4 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm">
-          <img src="/src/assets/cafe-tristonho.png" alt="" />
+          <img className="w-56" src="/src/assets/cafe-tristonho.png" alt="" />
           <h1 className="font-baloo2">
             Você ainda não adicionou nenhum café no seu carrinho! :(
           </h1>
