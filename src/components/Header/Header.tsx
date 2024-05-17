@@ -60,7 +60,7 @@ export function Header() {
 
           <NavLink to="/cart">
             <ShoppingCart
-              className="bg-yellow-light h-[2.375rem] w-[2.375rem] p-2 text-yellow-dark hover:text-yellow-light hover:bg-yellow-dark  rounded-md cursor-pointer w-auto"
+              className="bg-yellow-light h-[2.375rem] w-full p-2 text-yellow-dark hover:text-yellow-light hover:bg-yellow-dark  rounded-md cursor-pointer "
               size={25}
               weight="fill"
             />
