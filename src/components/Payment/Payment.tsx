@@ -8,60 +8,61 @@ import {
 import { NavLink } from 'react-router-dom';
 import { ButtonPayment } from './ButtonPayment';
 import cafeTriste from '../../assets/cafe-tristonho.png';
+import { InputPayment } from './InputPayment';
 
 export function Payment() {
   return (
-    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-4 lg:flex-row">
-      <section className="flex flex-col items-center justify-center gap-3">
+    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-4 xl:flex-row">
+      <section className="flex flex-col items-center xl:items-start xl:justify-center gap-3 ">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Complete seu pedido
         </h1>
 
         <form
-          className="flex flex-col bg-base-card p-4 rounded-lg gap-4 text-sm"
+          className="flex flex-col bg-base-card rounded-lg gap-8 text-sm p-2 sm:p-10 w-full"
           action="#"
         >
-          <div>
-            <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium">
+          <div className="space-y-1">
+            <h1 className="flex flex-row text-base-subtitle font-roboto font-medium">
               <MapPinLine className="text-yellow-dark" size={22} /> Endereço de
               entrega
             </h1>
 
-            <p className="font-roboto text-base-text text-sm mt-2">
+            <p className="font-roboto text-base-text text-sm pl-5">
               Informe o endereço onde deseja receber seu pedido
             </p>
           </div>
 
           <div className="flex flex-col gap-4">
-            <input type="text" placeholder="CEP" required />
-            <input type="text" placeholder="Rua" required />
+            <InputPayment placeholder="CEP" className="lg:w-[200px]" />
+            <InputPayment placeholder="Rua" />
 
-            <div className="flex flex-col gap-4">
-              <input type="text" placeholder="Número" required />
-              <input type="text" placeholder="Complemento" />
+            <div className="flex flex-col gap-4 md:flex-row">
+              <InputPayment placeholder="Número" className="lg:w-[200px]" />
+              <InputPayment placeholder="Complemento" />
             </div>
 
-            <div className="flex flex-col gap-4">
-              <input type="text" placeholder="Bairro" />
-              <input type="text" placeholder="Cidade" />
-              <input type="text" placeholder="UF" />
+            <div className="flex flex-col gap-4 md:flex-row">
+              <InputPayment placeholder="Bairro" className="lg:w-[200px]" />
+              <InputPayment placeholder="Cidade" />
+              <InputPayment placeholder="UF" className="lg:w-[60px]" />
             </div>
           </div>
         </form>
 
-        <div className="flex flex-col p-4 bg-base-card rounded-lg">
-          <div>
-            <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium mb-2">
+        <div className="flex flex-col justify-center gap-8 p-2 sm:p-10 max-h-[372px]  bg-base-card rounded-lg w-full">
+          <div className="space-y-1">
+            <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium ">
               <CurrencyDollar className="text-purple-normal" size={22} />
               Pagamento
             </h1>
 
-            <p className="font-roboto text-base-text text-sm mb-4">
+            <p className="font-roboto text-base-text text-sm  pl-5">
               O pagamento é feito na entrega. Escolha a forma que deseja pagar
             </p>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-3 lg:flex-row items-center text-sm sm:text-base">
             <ButtonPayment
               icon={<CreditCard size={22} />}
               value="CARTÃO DE CRÉDITO"
@@ -72,12 +73,12 @@ export function Payment() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center xl:items-stretch -mt-60">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Cafés selecionados
         </h1>
 
-        <div className="flex flex-col gap-4 bg-base-card p-4 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm">
+        <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm md:text-lg ">
           <img className="w-56" src={cafeTriste} alt="" />
           <h1 className="font-baloo2">
             Você ainda não adicionou nenhum café no seu carrinho! :(
