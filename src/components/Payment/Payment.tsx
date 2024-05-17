@@ -7,6 +7,7 @@ import {
 } from 'phosphor-react';
 import { NavLink } from 'react-router-dom';
 import { ButtonPayment } from './ButtonPayment';
+import cafeTriste from '../../assets/cafe-tristonho.png';
 
 export function Payment() {
   return (
@@ -77,7 +78,7 @@ export function Payment() {
         </h1>
 
         <div className="flex flex-col gap-4 bg-base-card p-4 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm">
-          <img className="w-56" src="/src/assets/cafe-tristonho.png" alt="" />
+          <img className="w-56" src={cafeTriste} alt="" />
           <h1 className="font-baloo2">
             Você ainda não adicionou nenhum café no seu carrinho! :(
           </h1>
