@@ -9,10 +9,54 @@ import { NavLink } from 'react-router-dom';
 import { ButtonPayment } from './ButtonPayment';
 import cafeTriste from '../../assets/cafe-tristonho.png';
 import { InputPayment } from './InputPayment';
+import { useState, useEffect, ChangeEvent } from 'react';
 
 export function Payment() {
+  const [addressData, setAddressData] = useState({
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+  });
+
+  const handleNewCep = (event: ChangeEvent<HTMLInputElement>) => {
+    const newCep = event.target.value;
+    console.log(newCep);
+    setAddressData({
+      ...addressData,
+      cep: newCep,
+    });
+  };
+
+  useEffect(() => {
+    async function fetchAddressData() {
+      try {
+        const response = await fetch(
+          `https://viacep.com.br/ws/${addressData.cep}/json/`
+        );
+        const data = await response.json();
+        setAddressData(prevData => ({
+          ...prevData,
+          logradouro: data.logradouro || '',
+          complemento: data.complemento || '',
+          bairro: data.bairro || '',
+          localidade: data.localidade || '',
+          uf: data.uf || '',
+        }));
+        console.log(data.localidade);
+      } catch (error) {
+        console.error('Error fetching address data:', error);
+      }
+    }
+    if (addressData.cep.length === 8) {
+      fetchAddressData();
+    }
+  }, [addressData.cep]);
+
   return (
-    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-4 xl:flex-row">
+    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
       <section className="flex flex-col items-center xl:items-start xl:justify-center gap-3 ">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Complete seu pedido
@@ -34,8 +78,14 @@ export function Payment() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <InputPayment placeholder="CEP" className="lg:w-[200px]" />
-            <InputPayment placeholder="Rua" />
+            <InputPayment
+              onChange={handleNewCep}
+              value={addressData.cep}
+              placeholder="CEP"
+              className="lg:w-[200px]"
+              size={8}
+            />
+            <InputPayment value={addressData.logradouro} placeholder="Rua" />
 
             <div className="flex flex-col gap-4 md:flex-row">
               <InputPayment placeholder="Número" className="lg:w-[200px]" />
@@ -43,9 +93,20 @@ export function Payment() {
             </div>
 
             <div className="flex flex-col gap-4 md:flex-row">
-              <InputPayment placeholder="Bairro" className="lg:w-[200px]" />
-              <InputPayment placeholder="Cidade" />
-              <InputPayment placeholder="UF" className="lg:w-[60px]" />
+              <InputPayment
+                value={addressData.bairro}
+                placeholder="Bairro"
+                className="lg:w-[200px]"
+              />
+              <InputPayment
+                placeholder="Cidade"
+                value={addressData.localidade}
+              />
+              <InputPayment
+                value={addressData.uf}
+                placeholder="UF"
+                className="lg:w-[60px]"
+              />
             </div>
           </div>
         </form>
@@ -67,7 +128,7 @@ export function Payment() {
               icon={<CreditCard size={22} />}
               value="CARTÃO DE CRÉDITO"
             />
-            <ButtonPayment icon={<Bank size={22} />} value="CARTÃO DE DÈBITO" />
+            <ButtonPayment icon={<Bank size={22} />} value="CARTÃO DE DÉBITO" />
             <ButtonPayment icon={<Money size={22} />} value="DINHEIRO" />
           </div>
         </div>
