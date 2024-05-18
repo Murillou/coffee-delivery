@@ -1,25 +1,18 @@
 import { ShoppingCart } from 'phosphor-react';
 import { QuantityInput } from './QuantityInput';
 import { useState } from 'react';
+import { useCoffeeContext } from '../../hooks/useCoffeeContext';
 
 interface CardProps {
   src: string;
   types: string[];
   coffeeName: string;
   description: string;
-  onPriceChange: (price: number) => void;
-  onQuantityChange: (price: number) => void;
 }
 
-export function Card({
-  src,
-  types,
-  coffeeName,
-  description,
-  onPriceChange,
-  onQuantityChange,
-}: CardProps) {
+export function Card({ src, types, coffeeName, description }: CardProps) {
   const [quantity, setQuantity] = useState(0);
+  const { handlePriceChange, handleQuantityItems } = useCoffeeContext();
 
   function handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,8 +21,8 @@ export function Card({
   function handleTotalPriceCoffee() {
     const coffePrice = 9.9;
     const totalQuantityPrice = quantity * coffePrice;
-    onPriceChange(totalQuantityPrice);
-    onQuantityChange(quantity);
+    handlePriceChange(totalQuantityPrice);
+    handleQuantityItems(quantity);
     setQuantity(0);
   }
 

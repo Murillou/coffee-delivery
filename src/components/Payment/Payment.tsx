@@ -10,9 +10,20 @@ import { ButtonPayment } from './ButtonPayment';
 import cafeTriste from '../../assets/cafe-tristonho.png';
 import { InputPayment } from './InputPayment';
 import { useState, useEffect, ChangeEvent } from 'react';
+import { useCoffeeContext } from '../../hooks/useCoffeeContext';
+
+interface AddressData {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+}
 
 export function Payment() {
-  const [addressData, setAddressData] = useState({
+  const { totalItems } = useCoffeeContext();
+  const [addressData, setAddressData] = useState<AddressData>({
     cep: '',
     logradouro: '',
     complemento: '',
@@ -21,14 +32,13 @@ export function Payment() {
     uf: '',
   });
 
-  const handleNewCep = (event: ChangeEvent<HTMLInputElement>) => {
+  function handleNewCep(event: ChangeEvent<HTMLInputElement>) {
     const newCep = event.target.value;
-    console.log(newCep);
     setAddressData({
       ...addressData,
       cep: newCep,
     });
-  };
+  }
 
   useEffect(() => {
     async function fetchAddressData() {
@@ -45,7 +55,6 @@ export function Payment() {
           localidade: data.localidade || '',
           uf: data.uf || '',
         }));
-        console.log(data.localidade);
       } catch (error) {
         console.error('Error fetching address data:', error);
       }
@@ -139,19 +148,30 @@ export function Payment() {
           Cafés selecionados
         </h1>
 
-        <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm md:text-lg ">
-          <img className="w-56" src={cafeTriste} alt="" />
-          <h1 className="font-baloo2">
-            Você ainda não adicionou nenhum café no seu carrinho! :(
-          </h1>
-
-          <h1>
+        {totalItems > 0 ? (
+          <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm md:text-lg ">
+            <div></div>
             <NavLink to="/" className="text-purple-normal font-extrabold">
-              Clique aqui
+              <button className="bg-yellow-normal text-white px-2 py-3 w-[386px]">
+                CONFIRMAR PEDIDO
+              </button>
             </NavLink>{' '}
-            para escolher algum cafézinho do nosso cardápio! :D
-          </h1>
-        </div>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm md:text-lg ">
+            <img className="w-56" src={cafeTriste} alt="" />
+            <h1 className="font-baloo2">
+              Você ainda não adicionou nenhum café no seu carrinho! :(
+            </h1>
+
+            <h1>
+              <NavLink to="/" className="text-purple-normal font-extrabold">
+                Clique aqui
+              </NavLink>{' '}
+              para escolher algum cafézinho do nosso cardápio! :D
+            </h1>
+          </div>
+        )}
       </section>
     </main>
   );

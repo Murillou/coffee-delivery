@@ -1,23 +1,7 @@
-import { useState } from 'react';
 import { coffees } from '../../mock/coffees';
 import { Card } from './Card';
 
 export function Menu() {
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [totalItems, setTotalItems] = useState(0);
-
-  function handlePriceChange(price: number) {
-    const newTotalPrice = totalPrice + price;
-    setTotalPrice(newTotalPrice);
-    console.log(newTotalPrice);
-    console.log(typeof setTotalPrice);
-  }
-
-  function handleQuantityItems(quantity: number) {
-    const totalItemsUpdate = totalItems + quantity;
-    setTotalItems(totalItemsUpdate);
-    console.log(totalItemsUpdate);
-  }
   return (
     <main className="flex flex-col  max-w-7xl mx-auto p-4 ">
       <div>
@@ -33,8 +17,6 @@ export function Menu() {
             types={coffee.types}
             coffeeName={coffee.coffeeName}
             description={coffee.description}
-            onPriceChange={handlePriceChange}
-            onQuantityChange={handleQuantityItems}
           />
         ))}
       </div>
