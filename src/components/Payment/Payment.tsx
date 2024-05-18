@@ -151,7 +151,10 @@ export function Payment() {
         {totalItems > 0 ? (
           <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm md:text-lg ">
             <div></div>
-            <NavLink to="/" className="text-purple-normal font-extrabold">
+            <NavLink
+              to="/success"
+              className="text-purple-normal font-extrabold"
+            >
               <button className="bg-yellow-normal text-white px-2 py-3 w-[386px]">
                 CONFIRMAR PEDIDO
               </button>
