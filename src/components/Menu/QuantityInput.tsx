@@ -15,7 +15,7 @@ export function QuantityInput({ value, onChange }: QuantityInputProps) {
   };
 
   return (
-    <div className="flex justify-center items-center gap-2 font-roboto bg-base-button py-1 rounded-md w-[65px]">
+    <div className="flex justify-center items-center gap-2 font-roboto bg-base-button py-1 rounded-lg w-[65px]">
       <button
         className="text-purple-normal font-extrabold "
         onClick={decrement}

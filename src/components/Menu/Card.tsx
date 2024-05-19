@@ -1,7 +1,7 @@
 import { ShoppingCart } from 'phosphor-react';
 import { QuantityInput } from './QuantityInput';
 import { useState } from 'react';
-import { useCoffeeContext } from '../../hooks/useCoffeeContext';
+import { useCartContext } from '../../hooks/useCartContext';
 
 interface CardProps {
   src: string;
@@ -12,18 +12,25 @@ interface CardProps {
 
 export function Card({ src, types, coffeeName, description }: CardProps) {
   const [quantity, setQuantity] = useState(0);
-  const { handlePriceChange, handleQuantityItems } = useCoffeeContext();
+  const { addToCart } = useCartContext();
 
   function handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
 
-  function handleTotalPriceCoffee() {
+  function handleAddTocart() {
     const coffePrice = 9.9;
-    const totalQuantityPrice = quantity * coffePrice;
-    handlePriceChange(totalQuantityPrice);
-    handleQuantityItems(quantity);
+    const coffee = {
+      src,
+      types,
+      coffeeName,
+      description,
+      quantity,
+      price: coffePrice * quantity,
+    };
+    addToCart(coffee);
     setQuantity(0);
+    console.log(coffee);
   }
 
   return (
@@ -52,7 +59,7 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
         <div className="flex items-center gap-2">
           <QuantityInput value={quantity} onChange={setQuantity} />
           <ShoppingCart
-            onClick={handleTotalPriceCoffee}
+            onClick={handleAddTocart}
             className="bg-purple-dark text-white h-[2rem] w-[2rem] p-2 hover:bg-purple-normal rounded-md cursor-pointer"
             size={25}
             weight="fill"

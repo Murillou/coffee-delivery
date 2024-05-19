@@ -10,7 +10,8 @@ import { ButtonPayment } from './ButtonPayment';
 import cafeTriste from '../../assets/cafe-tristonho.png';
 import { InputPayment } from './InputPayment';
 import { useState, useEffect, ChangeEvent } from 'react';
-import { useCoffeeContext } from '../../hooks/useCoffeeContext';
+import { CoffeePaymentCard } from './CoffeePaymentCard';
+import { useCartContext } from '../../hooks/useCartContext';
 
 interface AddressData {
   cep: string;
@@ -22,7 +23,7 @@ interface AddressData {
 }
 
 export function Payment() {
-  const { totalItems } = useCoffeeContext();
+  const { cart } = useCartContext();
   const [addressData, setAddressData] = useState<AddressData>({
     cep: '',
     logradouro: '',
@@ -148,9 +149,11 @@ export function Payment() {
           Cafés selecionados
         </h1>
 
-        {totalItems > 0 ? (
-          <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-baloo2 font-bold text-sm md:text-lg ">
-            <div></div>
+        {cart.length != 0 ? (
+          <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-sm md:text-lg ">
+            <div>
+              <CoffeePaymentCard />
+            </div>
             <NavLink
               to="/success"
               className="text-purple-normal font-extrabold"
