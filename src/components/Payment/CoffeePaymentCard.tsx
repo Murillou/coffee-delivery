@@ -17,14 +17,15 @@ export function CoffeePaymentCard() {
       {cart.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col items-center gap-3 px-1 py-2 pb-6 mb-6 border-b-[1px] border-b-base-button border-solid sm:flex-row sm:items-start"
+          className="flex flex-col items-center gap-3 px-1 py-2 pb-6 mb-6  lg:w-96 border-b-[1px] border-b-base-button border-solid sm:flex-row sm:items-start sm:justify-between"
         >
-          <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center gap-3 sm:flex-row md:justify-between ">
             <div>
               <img className="w-16 h-16" src={item.src} alt={item.coffeeName} />
             </div>
-            <div className="flex flex-col gap-3  ">
-              <h1 className="text-base-subtitle">{item.coffeeName}</h1>
+
+            <div className="flex items-center flex-col gap-3  ">
+              <h1 className="text-base-subtitle ">{item.coffeeName}</h1>
               <div className="flex gap-2 ">
                 <QuantityInput
                   value={item.quantity}
@@ -44,8 +45,8 @@ export function CoffeePaymentCard() {
           </div>
 
           <div>
-            <h1 className="text-base-text font-bold sm:ml-12">
-              R$ {item.price.toFixed(2)}
+            <h1 className="text-base-text font-bold ">
+              R$ {(item.quantity * item.price).toFixed(2)}
             </h1>
           </div>
         </div>

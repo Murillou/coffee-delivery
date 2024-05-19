@@ -66,7 +66,7 @@ export function Payment() {
   }, [addressData.cep]);
 
   return (
-    <main className="flex flex-col items-start max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
+    <main className="flex flex-col items-center xl:items-start max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
       <section className="flex flex-col items-center xl:items-start xl:justify-center gap-3 ">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Complete seu pedido
@@ -150,15 +150,44 @@ export function Payment() {
         </h1>
 
         {cart.length != 0 ? (
-          <div className="flex flex-col h-auto items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-sm md:text-lg ">
+          <div className="flex flex-col h-auto items-center gap-4 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-sm md:text-lg ">
             <div>
               <CoffeePaymentCard />
+            </div>
+            <div className="flex flex-col gap-3 w-full  sm:w-80 font-roboto text-base-text md:justify-between">
+              <div className="flex flex-col sm:flex-row items-center sm:justify-between ">
+                <p>Total de Itens</p>
+                <span>
+                  {cart
+                    .reduce(
+                      (total, item) => total + item.price * item.quantity,
+                      0
+                    )
+                    .toFixed(2)}
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center sm:flex-row sm:justify-between ">
+                <p>Entrega</p>
+                <p className="text-green-500">Grátis</p>
+              </div>
+              <div className="flex flex-col items-center sm:flex-row sm:justify-between font-bold ">
+                <p>Total</p>
+                <span>
+                  {cart
+                    .reduce(
+                      (total, item) => total + item.price * item.quantity,
+                      0
+                    )
+                    .toFixed(2)}
+                </span>
+              </div>
             </div>
             <NavLink
               to="/success"
               className="text-purple-normal font-extrabold"
             >
-              <button className="bg-yellow-normal text-white px-2 py-3 sm:w-64 lg:w-[386px]">
+              <button className="bg-yellow-normal text-white px-2 py-3 sm:w-64 lg:w-[386px] rounded-md">
                 CONFIRMAR PEDIDO
               </button>
             </NavLink>{' '}
