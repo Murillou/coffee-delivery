@@ -66,7 +66,7 @@ export function Payment() {
   }, [addressData.cep]);
 
   return (
-    <main className="flex flex-col-reverse items-center justify-center max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
+    <main className="flex flex-col items-center justify-center max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
       <section className="flex flex-col items-center xl:items-start xl:justify-center gap-3 ">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Complete seu pedido
@@ -158,7 +158,7 @@ export function Payment() {
               to="/success"
               className="text-purple-normal font-extrabold"
             >
-              <button className="bg-yellow-normal text-white px-2 py-3 w-[386px]">
+              <button className="bg-yellow-normal text-white px-2 py-3 sm:w-64 lg:w-[386px]">
                 CONFIRMAR PEDIDO
               </button>
             </NavLink>{' '}

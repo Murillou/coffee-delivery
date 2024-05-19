@@ -3,11 +3,11 @@ import { MapPin, ShoppingCart } from 'phosphor-react';
 import coffeelogo from '../../assets/logo-coffee.png';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useCoffeeContext } from '../../hooks/useCoffeeContext';
+import { useCartContext } from '../../hooks/useCartContext';
 
 export function Header() {
   const [city, setCity] = useState('');
-  const { totalItems } = useCoffeeContext();
+  const { cart } = useCartContext();
 
   useEffect(() => {
     if ('geolocation' in navigator) {
@@ -66,7 +66,7 @@ export function Header() {
               weight="fill"
             />
             <div className="absolute -top-3 -right-3 bg-yellow-dark rounded-full px-2 py-[3px] text-white font-bold text-sm ">
-              {totalItems}
+              {cart.reduce((total, item) => total + item.quantity, 0)}
             </div>
           </NavLink>
         </div>
