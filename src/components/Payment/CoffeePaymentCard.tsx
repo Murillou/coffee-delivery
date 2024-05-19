@@ -23,7 +23,7 @@ export function CoffeePaymentCard() {
             <div>
               <img className="w-16 h-16" src={item.src} alt={item.coffeeName} />
             </div>
-            <div className="flex flex-col gap-3 items-center ">
+            <div className="flex flex-col gap-3  ">
               <h1 className="text-base-subtitle">{item.coffeeName}</h1>
               <div className="flex gap-2 ">
                 <QuantityInput

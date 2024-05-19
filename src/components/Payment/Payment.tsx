@@ -66,7 +66,7 @@ export function Payment() {
   }, [addressData.cep]);
 
   return (
-    <main className="flex flex-col items-center justify-center max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
+    <main className="flex flex-col items-start max-w-7xl mx-auto p-4 gap-8 xl:flex-row">
       <section className="flex flex-col items-center xl:items-start xl:justify-center gap-3 ">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Complete seu pedido
@@ -144,13 +144,13 @@ export function Payment() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center xl:items-stretch xl:-mt-60">
+      <section className="flex flex-col items-center mt-3 lg:items-start">
         <h1 className="font-baloo2 font-extrabold text-2xl mb-4">
           Cafés selecionados
         </h1>
 
         {cart.length != 0 ? (
-          <div className="flex flex-col items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-sm md:text-lg ">
+          <div className="flex flex-col h-auto items-center gap-2 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-sm md:text-lg ">
             <div>
               <CoffeePaymentCard />
             </div>
@@ -169,13 +169,12 @@ export function Payment() {
             <h1 className="font-baloo2">
               Você ainda não adicionou nenhum café no seu carrinho! :(
             </h1>
-
             <h1>
               <NavLink to="/" className="text-purple-normal font-extrabold">
                 Clique aqui
               </NavLink>{' '}
-              para escolher algum cafézinho do nosso cardápio! :D
             </h1>
+            para escolher algum cafézinho do nosso cardápio! :D
           </div>
         )}
       </section>
