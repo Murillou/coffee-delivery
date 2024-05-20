@@ -53,8 +53,8 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
         className="flex items-center gap-6 mt-[33px]"
         action="#"
       >
-        <h1 className="font-baloo2">
-          R$ <span className="font-extrabold text-2xl">9,90</span>
+        <h1 className="font-baloo2 text-base-text align-baseline">
+          R$ <span className=" font-bold text-2xl">9,90</span>
         </h1>
         <div className="flex items-center gap-2">
           <QuantityInput value={quantity} onChange={setQuantity} />

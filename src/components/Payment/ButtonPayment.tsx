@@ -17,7 +17,7 @@ export function ButtonPayment({
   return (
     <button
       className={twMerge(
-        'flex gap-3 font-roboto text-base-text rounded-lg p-4 lg:w-[230.67px] mb-4 w-full hover:bg-base-hover ',
+        'flex gap-3 font-roboto items-center text-base-text text-xs rounded-lg p-4 lg:w-[230.67px] mb-4 w-full hover:bg-base-hover ',
         className
       )}
       type="button"

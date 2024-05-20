@@ -1,9 +1,10 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react';
 import pilotMan from '../assets/pilotman.png';
 import { useAddressContext } from '../hooks/useAddressContext';
+import '../styles/succes.css';
 
 export function Success() {
-  const { addressData, numberAddress } = useAddressContext();
+  const { addressData } = useAddressContext();
   return (
     <main className="flex flex-col max-w-7xl p-4 mx-auto items-center mt-10 gap-14 md:flex-row lg:gap-28 lg:mt-20">
       <div>
@@ -15,7 +16,7 @@ export function Success() {
           Agora é só aguardar que logo o café chegará até você
         </p>
 
-        <div className="flex flex-col items-center justify-center md:items-baseline  gap-4 max-w-[540px] rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] border-solid border-2 border-purple-normal mt-10 p-5 lg:p-10 font-roboto text-base-text">
+        <div className="flex flex-col items-center justify-center md:items-baseline gap-8 max-w-[540px] mt-10 p-5 lg:p-10 font-roboto text-base-text border-gradient">
           <div className="flex flex-col justify-center items-center gap-3 md:flex-row ">
             <div>
               <MapPin
@@ -26,9 +27,7 @@ export function Success() {
             </div>
             <p className="max-w-[11rem] md:max-w-md">
               Entrega em{' '}
-              <span className="font-bold">
-                {addressData.logradouro}, {numberAddress}{' '}
-              </span>
+              <span className="font-bold">{addressData.logradouro}, 181 </span>
               {addressData.bairro} - {addressData.localidade} - {addressData.uf}
             </p>
           </div>

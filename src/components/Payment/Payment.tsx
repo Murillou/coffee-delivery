@@ -78,13 +78,13 @@ export function Payment() {
           </h1>
 
           <div className="flex flex-col bg-base-card rounded-lg gap-8 text-sm p-2 sm:p-10 w-full">
-            <div className="space-y-1">
-              <h1 className="flex flex-row text-base-subtitle font-roboto font-medium">
-                <MapPinLine className="text-yellow-dark" size={22} /> Endereço
+            <div>
+              <h1 className="flex flex-row gap-2 text-base-subtitle text-base font-roboto font-medium">
+                <MapPinLine className="text-yellow-dark" size={24} /> Endereço
                 de entrega
               </h1>
 
-              <p className="font-roboto text-base-text text-sm pl-5">
+              <p className="font-roboto text-base-text text-sm pl-8">
                 Informe o endereço onde deseja receber seu pedido
               </p>
             </div>
@@ -166,12 +166,13 @@ export function Payment() {
           </div>
 
           <div className="flex flex-col justify-center gap-8 p-2 sm:p-10 max-h-[372px] bg-base-card rounded-lg w-full">
-            <div className="space-y-1">
-              <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium ">
-                <CurrencyDollar className="text-purple-normal" size={22} />
+            <div>
+              <h1 className="flex flex-row gap-2 items-center text-base-subtitle font-roboto font-medium ">
+                <CurrencyDollar className="text-purple-normal" size={24} />
                 Pagamento
               </h1>
-              <p className="font-roboto text-base-text text-sm  pl-5">
+
+              <p className="font-roboto text-base-text text-sm pl-8">
                 O pagamento é feito na entrega. Escolha a forma que deseja pagar
               </p>
             </div>
@@ -224,8 +225,8 @@ export function Payment() {
               </div>
               <div className="flex flex-col gap-3 w-full  font-roboto text-base-text md:justify-between">
                 <div className="flex flex-col sm:flex-row items-center sm:justify-between ">
-                  <p>Total de Itens</p>
-                  <span>
+                  <p className="text-sm">Total de Itens</p>
+                  <span className="text-base">
                     R${' '}
                     {cart
                       .reduce((total, item) => total + 9.9 * item.quantity, 0)
@@ -234,10 +235,10 @@ export function Payment() {
                 </div>
 
                 <div className="flex flex-col items-center sm:flex-row sm:justify-between ">
-                  <p>Entrega</p>
-                  <p className="text-green-500">Grátis</p>
+                  <p className="text-sm">Entrega</p>
+                  <p className="text-green-500 text-base">Grátis</p>
                 </div>
-                <div className="flex flex-col items-center sm:flex-row sm:justify-between font-bold ">
+                <div className="flex flex-col items-center sm:flex-row sm:justify-between font-bold text-base-subtitle text-xl ">
                   <p>Total</p>
                   <span>
                     R${' '}
@@ -248,7 +249,7 @@ export function Payment() {
                 </div>
               </div>
               <button
-                className="bg-yellow-normal text-white px-2 py-3 sm:w-96 rounded-md hover:bg-yellow-dark"
+                className="bg-yellow-normal text-white font-bold px-2 py-3 sm:w-96 rounded-md hover:bg-yellow-dark"
                 type="submit"
               >
                 CONFIRMAR PEDIDO
