@@ -46,7 +46,7 @@ export function CoffeePaymentCard() {
 
           <div>
             <h1 className="text-base-text font-bold ">
-              R$ {(item.quantity * item.price).toFixed(2)}
+              R$ {(9.9 * item.quantity).toFixed(2)}
             </h1>
           </div>
         </div>

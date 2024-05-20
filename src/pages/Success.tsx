@@ -1,7 +1,9 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react';
 import pilotMan from '../assets/pilotman.png';
+import { useAddressContext } from '../hooks/useAddressContext';
 
 export function Success() {
+  const { addressData } = useAddressContext();
   return (
     <main className="flex flex-col max-w-7xl p-4 mx-auto items-center mt-10 gap-14 md:flex-row lg:gap-28 lg:mt-20">
       <div>
@@ -24,10 +26,8 @@ export function Success() {
             </div>
             <p className="max-w-[11rem] md:max-w-md">
               Entrega em{' '}
-              <span className="font-bold">
-                Rua Adriano Jorge Cavalcante Ribeiro, 181
-              </span>{' '}
-              Mangabeira - João Pessoa, PB
+              <span className="font-bold">{addressData.logradouro}, 181 </span>
+              {addressData.bairro} - {addressData.localidade} - {addressData.uf}
             </p>
           </div>
 
