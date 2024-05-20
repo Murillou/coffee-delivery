@@ -26,6 +26,7 @@ export function Payment() {
   const { cart, clearCart } = useCartContext();
   const navigate = useNavigate();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+  const [showRedBorder, setShowRedBorder] = useState(false);
 
   function handleNewCep(event: ChangeEvent<HTMLInputElement>) {
     const newCep = event.target.value;
@@ -64,12 +65,14 @@ export function Payment() {
 
       navigate('/success');
     } else {
-      alert('Por favor, selecione um método de pagamento.');
+      setShowRedBorder(true);
+      setTimeout(() => setShowRedBorder(false), 3000);
     }
   }
 
   function handlePaymentMethodSelect(method: string) {
     setSelectedPaymentMethod(method);
+    setShowRedBorder(false);
   }
 
   return (
@@ -179,35 +182,47 @@ export function Payment() {
 
             <div className="flex flex-col gap-3 lg:flex-row items-center text-sm sm:text-base">
               <ButtonPayment
-                className={
-                  selectedPaymentMethod === 'CARTÂO DE CRÉDITO'
+                className={`${
+                  selectedPaymentMethod === 'CARTÃO DE CRÉDITO'
                     ? 'bg-purple-light border-2 border-purple-normal'
-                    : '  bg-base-button border-2 border-transparent '
-                }
+                    : 'bg-base-button border-2 border-transparent'
+                } ${
+                  showRedBorder && !selectedPaymentMethod
+                    ? 'border-red-500'
+                    : ''
+                }`}
                 icon={<CreditCard size={22} />}
                 value="CARTÃO DE CRÉDITO"
-                onClick={() => handlePaymentMethodSelect('CARTÂO DE CRÉDITO')}
+                onClick={() => handlePaymentMethodSelect('CARTÃO DE CRÉDITO')}
               />
 
               <ButtonPayment
                 icon={<Bank size={22} />}
                 value="CARTÃO DE DÉBITO"
-                onClick={() => handlePaymentMethodSelect('CARTÂO DE DÉBITO')}
-                className={
-                  selectedPaymentMethod === 'CARTÂO DE DÉBITO'
+                onClick={() => handlePaymentMethodSelect('CARTÃO DE DÉBITO')}
+                className={`${
+                  selectedPaymentMethod === 'CARTÃO DE DÉBITO'
                     ? 'bg-purple-light border-2 border-purple-normal'
-                    : '  bg-base-button border-2 border-transparent  '
-                }
+                    : 'bg-base-button border-2 border-transparent'
+                } ${
+                  showRedBorder && !selectedPaymentMethod
+                    ? 'border-red-500'
+                    : ''
+                }`}
               />
               <ButtonPayment
                 icon={<Money size={22} />}
                 value="DINHEIRO"
                 onClick={() => handlePaymentMethodSelect('DINHEIRO')}
-                className={
+                className={`${
                   selectedPaymentMethod === 'DINHEIRO'
                     ? 'bg-purple-light border-2 border-purple-normal'
-                    : '  bg-base-button border-2 border-transparent '
-                }
+                    : 'bg-base-button border-2 border-transparent'
+                } ${
+                  showRedBorder && !selectedPaymentMethod
+                    ? 'border-red-500'
+                    : ''
+                }`}
               />
             </div>
           </div>

@@ -1,7 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react';
 import pilotMan from '../assets/pilotman.png';
 import { useAddressContext } from '../hooks/useAddressContext';
-import '../styles/succes.css';
 
 export function Success() {
   const { addressData } = useAddressContext();
@@ -16,7 +15,8 @@ export function Success() {
           Agora é só aguardar que logo o café chegará até você
         </p>
 
-        <div className="flex flex-col items-center justify-center md:items-baseline gap-8 max-w-[540px] mt-10 p-5 lg:p-10 font-roboto text-base-text border-gradient">
+        <div className="flex flex-col items-center justify-center md:items-baseline  gap-4 max-w-[540px] rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] border-solid border-2 border-purple-normal mt-10 p-5 lg:p-10 font-roboto text-base-text">
+          {' '}
           <div className="flex flex-col justify-center items-center gap-3 md:flex-row ">
             <div>
               <MapPin
@@ -31,7 +31,6 @@ export function Success() {
               {addressData.bairro} - {addressData.localidade} - {addressData.uf}
             </p>
           </div>
-
           <div className="flex flex-col items-center gap-3 md:flex-row">
             <Timer
               size={22}
@@ -43,7 +42,6 @@ export function Success() {
               <p className="font-bold">20 - 30 min</p>
             </span>
           </div>
-
           <div className="flex flex-col items-center gap-3 md:flex-row">
             <CurrencyDollar className=" text-white bg-yellow-dark rounded-full p-2 h-8 w-8" />
             <span>

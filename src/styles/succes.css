@@ -11,3 +11,11 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
+
+@media (max-width: 770px) {
+  .border-gradient {
+    border: none;
+    background-image: none;
+    background-origin: initial;
+  }
+}
