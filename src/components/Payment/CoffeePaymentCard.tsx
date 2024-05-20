@@ -17,7 +17,7 @@ export function CoffeePaymentCard() {
       {cart.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col items-center gap-3 px-1 py-2 pb-6 mb-6  lg:w-96 border-b-[1px] border-b-base-button border-solid sm:flex-row sm:items-start sm:justify-between"
+          className="flex flex-col items-center gap-3 px-1 py-2 pb-6 mb-6  lg:w-96 border-b-[1px] border-b-base-button border-solid sm:flex-row sm:items-start sm:justify-between text-lg"
         >
           <div className="flex flex-col items-center gap-3 sm:flex-row md:justify-between ">
             <div>

@@ -11,7 +11,9 @@ interface AddressData {
 
 interface AddressContextType {
   addressData: AddressData;
+  numberAddress: string;
   isAddressFetched: boolean;
+  setNumberAddress: (number: string) => void;
   setAddressData: (data: AddressData) => void;
   setIsAddressFetched: (value: boolean) => void;
 }
@@ -28,6 +30,7 @@ export function AddressProvider({ children }: { children: ReactNode }) {
     uf: '',
   });
   const [isAddressFetched, setIsAddressFetched] = useState(false);
+  const [numberAddress, setNumberAddress] = useState('');
 
   useEffect(() => {
     async function fetchAddressData() {
@@ -67,9 +70,11 @@ export function AddressProvider({ children }: { children: ReactNode }) {
     <AddressContext.Provider
       value={{
         addressData,
+        numberAddress,
         isAddressFetched,
         setIsAddressFetched,
         setAddressData,
+        setNumberAddress,
       }}
     >
       {children}

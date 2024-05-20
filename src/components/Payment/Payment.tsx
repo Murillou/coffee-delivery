@@ -9,17 +9,23 @@ import { NavLink } from 'react-router-dom';
 import { ButtonPayment } from './ButtonPayment';
 import cafeTriste from '../../assets/cafe-tristonho.png';
 import { InputPayment } from './InputPayment';
-import { ChangeEvent, FormEvent } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { CoffeePaymentCard } from './CoffeePaymentCard';
 import { useCartContext } from '../../hooks/useCartContext';
 import { useNavigate } from 'react-router-dom';
 import { useAddressContext } from '../../hooks/useAddressContext';
 
 export function Payment() {
-  const { addressData, isAddressFetched, setAddressData, setIsAddressFetched } =
-    useAddressContext();
+  const {
+    addressData,
+    isAddressFetched,
+    setAddressData,
+    setIsAddressFetched,
+    setNumberAddress,
+  } = useAddressContext();
   const { cart } = useCartContext();
   const navigate = useNavigate();
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
   function handleNewCep(event: ChangeEvent<HTMLInputElement>) {
     const newCep = event.target.value;
@@ -33,20 +39,34 @@ export function Payment() {
 
   function handleValueInput(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
-
-    setAddressData({
-      ...addressData,
-      [name]: value,
-    });
+    if (name === 'numero') {
+      setNumberAddress(value);
+    } else {
+      setAddressData({
+        ...addressData,
+        [name]: value,
+      });
+    }
   }
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const { cep, logradouro, bairro, localidade, uf } = addressData;
-    if (cep && logradouro && bairro && localidade && uf) {
+    if (
+      cep &&
+      logradouro &&
+      bairro &&
+      localidade &&
+      uf &&
+      selectedPaymentMethod
+    ) {
       navigate('/success');
     } else {
       alert('Por favor, preencha todos os campos obrigatórios.');
     }
+  }
+
+  function handlePaymentMethodSelect(method: string) {
+    setSelectedPaymentMethod(method);
   }
 
   return (
@@ -90,8 +110,10 @@ export function Payment() {
 
               <div className="flex flex-col gap-4 md:flex-row">
                 <InputPayment
+                  name="numero"
                   placeholder="Número"
                   className="lg:w-[200px]"
+                  onChange={handleValueInput}
                   required
                 />
                 <span className="relative w-full">
@@ -143,11 +165,11 @@ export function Payment() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center gap-8 p-2 sm:p-10 max-h-[372px]  bg-base-card rounded-lg w-full">
+          <div className="flex flex-col justify-center gap-8 p-2 sm:p-10 max-h-[372px] bg-base-card rounded-lg w-full">
             <div className="space-y-1">
-              Pagamento
               <h1 className="flex flex-row items-center text-base-subtitle font-roboto font-medium ">
                 <CurrencyDollar className="text-purple-normal" size={22} />
+                Pagamento
               </h1>
               <p className="font-roboto text-base-text text-sm  pl-5">
                 O pagamento é feito na entrega. Escolha a forma que deseja pagar
@@ -156,14 +178,36 @@ export function Payment() {
 
             <div className="flex flex-col gap-3 lg:flex-row items-center text-sm sm:text-base">
               <ButtonPayment
+                className={
+                  selectedPaymentMethod === 'CARTÂO DE CRÉDITO'
+                    ? 'bg-purple-light border-2 border-purple-normal'
+                    : '  bg-base-button border-2 border-transparent '
+                }
                 icon={<CreditCard size={22} />}
                 value="CARTÃO DE CRÉDITO"
+                onClick={() => handlePaymentMethodSelect('CARTÂO DE CRÉDITO')}
               />
+
               <ButtonPayment
                 icon={<Bank size={22} />}
                 value="CARTÃO DE DÉBITO"
+                onClick={() => handlePaymentMethodSelect('CARTÂO DE DÉBITO')}
+                className={
+                  selectedPaymentMethod === 'CARTÂO DE DÉBITO'
+                    ? 'bg-purple-light border-2 border-purple-normal'
+                    : '  bg-base-button border-2 border-transparent  '
+                }
               />
-              <ButtonPayment icon={<Money size={22} />} value="DINHEIRO" />
+              <ButtonPayment
+                icon={<Money size={22} />}
+                value="DINHEIRO"
+                onClick={() => handlePaymentMethodSelect('DINHEIRO')}
+                className={
+                  selectedPaymentMethod === 'DINHEIRO'
+                    ? 'bg-purple-light border-2 border-purple-normal'
+                    : '  bg-base-button border-2 border-transparent '
+                }
+              />
             </div>
           </div>
         </section>
@@ -174,7 +218,7 @@ export function Payment() {
           </h1>
 
           {cart.length !== 0 ? (
-            <div className="flex flex-col h-auto items-center gap-4 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-sm md:text-lg ">
+            <div className="flex flex-col h-auto items-center gap-4 bg-base-card p-10 rounded-tl-lg rounded-br-lg rounded-tr-[40px] rounded-bl-[40px] font-roboto text-lg ">
               <div>
                 <CoffeePaymentCard />
               </div>
@@ -204,7 +248,7 @@ export function Payment() {
                 </div>
               </div>
               <button
-                className="bg-yellow-normal text-white px-2 py-3 sm:w-96 rounded-md"
+                className="bg-yellow-normal text-white px-2 py-3 sm:w-96 rounded-md hover:bg-yellow-dark"
                 type="submit"
               >
                 CONFIRMAR PEDIDO
@@ -219,9 +263,9 @@ export function Payment() {
               <h1>
                 <NavLink to="/" className="text-purple-normal font-extrabold">
                   Clique aqui
-                </NavLink>
+                </NavLink>{' '}
+                para escolher algum cafézinho do nosso cardápio! :D
               </h1>
-              para escolher algum cafézinho do nosso cardápio! :D
             </div>
           )}
         </section>

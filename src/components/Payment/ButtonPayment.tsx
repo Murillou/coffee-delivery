@@ -1,13 +1,28 @@
 import { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface ButtonPaymentProps {
   icon: ReactNode;
   value: string;
+  className?: string;
+  onClick: () => void;
 }
 
-export function ButtonPayment({ icon, value }: ButtonPaymentProps) {
+export function ButtonPayment({
+  icon,
+  value,
+  className,
+  onClick,
+}: ButtonPaymentProps) {
   return (
-    <button className="flex gap-3 font-roboto text-base-text bg-base-button rounded-lg p-4 lg:w-[230.67px] mb-4 w-full hover:bg-base-hover target:bg-purple-light  ">
+    <button
+      className={twMerge(
+        'flex gap-3 font-roboto text-base-text rounded-lg p-4 lg:w-[230.67px] mb-4 w-full hover:bg-base-hover ',
+        className
+      )}
+      type="button"
+      onClick={onClick}
+    >
       <span className="text-purple-normal">{icon}</span>
       {value}
     </button>
