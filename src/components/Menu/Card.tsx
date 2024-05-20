@@ -1,7 +1,9 @@
-import { ShoppingCart } from 'phosphor-react';
+import { Check, ShoppingCart } from 'phosphor-react';
 import { QuantityInput } from './QuantityInput';
 import { useState } from 'react';
 import { useCartContext } from '../../hooks/useCartContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface CardProps {
   src: string;
@@ -11,7 +13,8 @@ interface CardProps {
 }
 
 export function Card({ src, types, coffeeName, description }: CardProps) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [isCheckedProduct, setIsCheckedProduct] = useState(false);
   const { addToCart } = useCartContext();
 
   function handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
@@ -29,8 +32,13 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
       price: coffePrice * quantity,
     };
     addToCart(coffee);
-    setQuantity(0);
-    console.log(coffee);
+    setQuantity(1);
+    toast.success('Produto adicionado ao carrinho');
+    setIsCheckedProduct(true);
+
+    setTimeout(() => {
+      setIsCheckedProduct(false);
+    }, 3500);
   }
 
   return (
@@ -58,12 +66,24 @@ export function Card({ src, types, coffeeName, description }: CardProps) {
         </h1>
         <div className="flex items-center gap-2">
           <QuantityInput value={quantity} onChange={setQuantity} />
-          <ShoppingCart
-            onClick={handleAddTocart}
-            className="bg-purple-dark text-white h-[2rem] w-[2rem] p-2 hover:bg-purple-normal rounded-md cursor-pointer"
-            size={25}
-            weight="fill"
-          />
+          {!isCheckedProduct ? (
+            <ShoppingCart
+              onClick={handleAddTocart}
+              className={
+                'bg-purple-dark text-white h-[2rem] w-[2rem] p-2 hover:bg-purple-normal rounded-md cursor-pointer'
+              }
+              size={25}
+              weight="fill"
+            />
+          ) : (
+            <Check
+              className={
+                'bg-green-500 text-white h-[2rem] w-[2rem] p-2  rounded-md cursor-not-allowed'
+              }
+              size={25}
+              weight="fill"
+            />
+          )}
         </div>
       </form>
     </div>

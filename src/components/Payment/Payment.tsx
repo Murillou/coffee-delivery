@@ -23,7 +23,7 @@ export function Payment() {
     setIsAddressFetched,
     setNumberAddress,
   } = useAddressContext();
-  const { cart } = useCartContext();
+  const { cart, clearCart } = useCartContext();
   const navigate = useNavigate();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
@@ -59,9 +59,12 @@ export function Payment() {
       uf &&
       selectedPaymentMethod
     ) {
+      console.log('teste ');
+      clearCart();
+
       navigate('/success');
     } else {
-      alert('Por favor, preencha todos os campos obrigatórios.');
+      alert('Por favor, selecione um método de pagamento.');
     }
   }
 
@@ -83,7 +86,6 @@ export function Payment() {
                 <MapPinLine className="text-yellow-dark" size={24} /> Endereço
                 de entrega
               </h1>
-
               <p className="font-roboto text-base-text text-sm pl-8">
                 Informe o endereço onde deseja receber seu pedido
               </p>
@@ -107,7 +109,6 @@ export function Payment() {
                 className={isAddressFetched ? 'cursor-not-allowed' : ''}
                 required
               />
-
               <div className="flex flex-col gap-4 md:flex-row">
                 <InputPayment
                   name="numero"
@@ -123,7 +124,6 @@ export function Payment() {
                   </p>
                 </span>
               </div>
-
               <div className="flex flex-col gap-4 md:flex-row ">
                 <InputPayment
                   name="bairro"
