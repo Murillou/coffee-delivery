@@ -5,7 +5,7 @@ import { useAddressContext } from '../hooks/useAddressContext';
 export function Success() {
   const { addressData } = useAddressContext();
   return (
-    <main className="flex flex-col max-w-7xl p-4 mx-auto items-center mt-10 gap-14 md:flex-row lg:gap-28 lg:mt-20">
+    <main className="flex flex-col max-w-7xl p-4 mx-auto items-center gap-14 md:flex-row lg:gap-28 lg:mt-20">
       <div>
         <h1 className="font-baloo2 font-extrabold text-[25px] text-yellow-dark">
           Uhu! Pedido confirmado
