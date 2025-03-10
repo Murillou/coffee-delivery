@@ -82,7 +82,7 @@ export const coffees = [
   },
   {
     src: 'coffees/irlandes.png',
-    types: ['ESPECIAl', 'ALCOÓLICO'],
+    types: ['ESPECIAL', 'ALCOÓLICO'],
     coffeeName: 'Irlandês',
     description: 'Bebida a base de café, uisque irlândes, açícar e chantilly',
   },
