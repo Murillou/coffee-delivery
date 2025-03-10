@@ -6,7 +6,7 @@ Bem-vindo ao **Coffee Delivery**! Este é um website responsivo desenvolvido com
 
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **Hooks do React**: Utilização de `useState`, `useContext` e `useEffect` para gerenciamento de estado e efeitos colaterais.
-- **API Busca CEP**: Integração para buscar automaticamente o endereço do usuário com base no CEP informado.
+- **API ViaCEP**: Integração para buscar automaticamente o endereço do usuário com base no CEP informado.
 - **Tailwind CSS**: Framework CSS para estilização com foco em design **Mobile First** e responsividade.
 
 ## 📋 Funcionalidades
