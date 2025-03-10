@@ -4,16 +4,18 @@ import coffeeBackground from '../../assets/coffee-bg.png';
 export function Main() {
   return (
     <section className="bg-[url('./assets/background.png')] bg-cover">
-      <main className="flex flex-col justify-between items-center p-4 sm:flex-row max-w-7xl mx-auto">
+      <main className="flex flex-col justify-between items-center p-4 sm:flex-row max-w-7xl mx-auto gap-5">
         <div className="flex flex-col mx-0">
-          <h1 className="text-base-title text-5xl font-extrabold max-w-xl font-baloo2">
+          <h1 className="text-base-title text-4xl md:text-5xl font-extrabold max-w-xl font-baloo2">
             Encontre o café perfeito para qualquer hora do dia
           </h1>
+
           <h3 className="text-base-subtitle text-xl font-roboto font-normal mt-4 max-w-xl  ">
             Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
             hora
           </h3>
-          <div className="flex flex-row flex-wrap  text-base-subtitle gap-6 text-lg mt-7 lg:mt-[4.1rem] xl:flex-nowrap">
+
+          <div className="flex flex-row flex-wrap  text-base-subtitle gap-6 text-base md:text-lg mt-7 lg:mt-[4.1rem] xl:flex-nowrap">
             <div className="flex flex-col gap-6">
               <span className="flex items-center gap-3">
                 <ShoppingCart
