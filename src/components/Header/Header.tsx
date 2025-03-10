@@ -54,7 +54,7 @@ export function Header() {
           </div>
         </NavLink>
 
-        <div className="flex flex-col gap-3 sm:flex-row ">
+        <div className="flex gap-3 sm:flex-row ">
           <div className="flex items-center p-2 gap-1 bg-purple-light text-purple-dark rounded-md cursor-pointer hover:bg-purple-normal hover:text-purple-light">
             <MapPin size={22} weight="fill" />
             {city && <span>{city}</span>}
