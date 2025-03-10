@@ -54,7 +54,7 @@ export function Main() {
             </div>
           </div>
         </div>
-        <div className="">
+        <div>
           <img src={coffeeBackground} alt="Coffee" />
         </div>
       </main>
